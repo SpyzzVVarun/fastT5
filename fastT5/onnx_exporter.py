@@ -114,9 +114,12 @@ def generate_onnx_representation(
     input_ids_dec = torch.tensor(np.ones((batch_size, dec_seq_length), dtype=np.int64))
     attention_mask_dec = torch.tensor(np.ones((batch_size, dec_seq_length), dtype=np.int64))
 
-    enc_out = torch.ones(
-        (batch_size, enc_seq_length, model_config.d_model), dtype=torch.float32
-    )
+#     enc_out = torch.ones(
+#         (batch_size, enc_seq_length, model_config.d_model), dtype=torch.float32
+#     )
+    enc_out = torch.tensor(np.ones(
+        (batch_size, enc_seq_length, model_config.d_model), dtype=np.float32
+    ))
 
     # self_attention_past_key_values = torch.ones(
     #     (model_config.num_decoder_layers, 2, batch_size, n_heads, seq_length_a, d_kv), dtype=torch.float32)
